@@ -1,0 +1,2005 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PB8P48SV');</script>
+  <!-- End Google Tag Manager -->
+    <link rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.12.1/css/all.css">
+    <script
+      src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+    <link rel='stylesheet'
+      href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'>
+    <!-- AOS  -->
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel='stylesheet' href='https://unpkg.com/aos@2.3.0/dist/aos.css'>
+    
+  
+    <!-- <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    
+    <style>
+      /* Googlefont Inter CDN Link */
+      @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+      
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Inter', sans-serif;
+      }
+      
+      html,
+      body {
+        min-height: 100vh;
+        background-color: #DDDDDD;
+        background-image: url('static/images/frontend/lines.svg');
+        background-repeat: repeat;
+      }
+      
+      a {
+        text-decoration: none;
+      }
+      
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 70px;
+        background: rgba(35, 70, 138, 0);
+        z-index: 99;
+        color: rgb(255, 255, 255);
+        transition: background 0.3s ease;
+        /* Smooth transition */
+      }
+      
+      .acolorchange {
+        color: rgb(255, 255, 255);
+      }
+      
+      nav .navbar {
+        height: 100%;
+        max-width: 1250px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: auto;
+        /* background: red; */
+        padding: 0 50px;
+      }
+      
+      .navbar .logo a {
+        font-size: 30px;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      
+      nav .navbar .nav-links {
+        line-height: 70px;
+        height: 100%;
+      }
+      
+      nav .navbar .links {
+        display: flex;
+      }
+      
+      nav .navbar .links li {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        list-style: none;
+        padding: 0 14px;
+      }
+      
+      nav .navbar .links li a {
+        height: 100%;
+        text-decoration: none;
+        white-space: nowrap;
+        font-size: 15px;
+        font-weight: 500;
+      }
+      
+      .links li:hover .htmlcss-arrow,
+      .links li:hover .js-arrow {
+        transform: rotate(180deg);
+      }
+      
+      nav .navbar .links li .arrow {
+        /* background: red; */
+        height: 100%;
+        width: 22px;
+        line-height: 70px;
+        text-align: center;
+        display: inline-block;
+        color: #fff;
+        transition: all 0.3s ease;
+      }
+      
+      nav .navbar .links li .sub-menu {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        line-height: 40px;
+        background: #3E8DA8;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        border-radius: 0 0 4px 4px;
+        display: none;
+        z-index: 2;
+      }
+      
+      nav .navbar .links li:hover .htmlCss-sub-menu,
+      nav .navbar .links li:hover .js-sub-menu {
+        display: block;
+      }
+      
+      .navbar .links li .sub-menu li {
+        padding: 0 22px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      
+      .navbar .links li .sub-menu a {
+        color: #fff;
+        font-size: 15px;
+        font-weight: 500;
+      }
+      
+      .navbar .links li .sub-menu .more-arrow {
+        line-height: 40px;
+      }
+      
+      .navbar .links li .htmlCss-more-sub-menu {
+        /* line-height: 40px; */
+      }
+      
+      .navbar .links li .sub-menu .more-sub-menu {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        border-radius: 0 4px 4px 4px;
+        z-index: 1;
+        display: none;
+      }
+      
+      .links li .sub-menu .more:hover .more-sub-menu {
+        display: block;
+      }
+      
+      .navbar .search-box {
+        position: relative;
+        height: 40px;
+        width: 40px;
+      }
+      
+      .navbar .search-box i {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        line-height: 40px;
+        text-align: center;
+        font-size: 22px;
+        color: #fff;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      
+      .navbar .search-box .input-box {
+        position: absolute;
+        right: calc(100% - 40px);
+        top: 80px;
+        height: 60px;
+        width: 300px;
+        background: #3E8DA8;
+        border-radius: 6px;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.4s ease;
+      }
+      
+      .navbar.showInput .search-box .input-box {
+        top: 65px;
+        opacity: 1;
+        pointer-events: auto;
+        background: #3E8DA8;
+      }
+      
+      .search-box .input-box::before {
+        content: '';
+        position: absolute;
+        height: 20px;
+        width: 20px;
+        background: #3E8DA8;
+        right: 10px;
+        top: -6px;
+        transform: rotate(45deg);
+      }
+      
+      .search-box .input-box input {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        border-radius: 4px;
+        transform: translate(-50%, -50%);
+        height: 35px;
+        width: 280px;
+        outline: none;
+        padding: 0 15px;
+        font-size: 16px;
+        border: none;
+      }
+      
+      .navbar .nav-links .sidebar-logo {
+        display: none;
+      }
+      
+      .navbar .bx-menu {
+        display: none;
+      }
+      
+      @media (max-width:920px) {
+        nav .navbar {
+          max-width: 100%;
+          padding: 0 25px;
+        }
+      
+        nav .navbar .logo a {
+          font-size: 27px;
+        }
+      
+        nav .navbar .links li {
+          padding: 0 10px;
+          white-space: nowrap;
+        }
+      
+        nav .navbar .links li a {
+          font-size: 15px;
+        }
+      }
+      
+      @media (max-width:800px) {
+        nav {
+          /* position: relative; */
+        }
+      
+        .navbar .bx-menu {
+          display: block;
+        }
+      
+        nav .navbar .nav-links {
+          position: fixed;
+          top: 0;
+          left: -100%;
+          display: block;
+          max-width: 270px;
+          width: 100%;
+          background: #3E8DA8;
+          line-height: 40px;
+          padding: 20px;
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+          transition: all 0.5s ease;
+          z-index: 1000;
+        }
+      
+        .navbar .nav-links .sidebar-logo {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+      
+        .sidebar-logo .logo-name {
+          font-size: 25px;
+          color: #fff;
+        }
+      
+        .sidebar-logo i,
+        .navbar .bx-menu {
+          font-size: 25px;
+          color: #fff;
+        }
+      
+        nav .navbar .links {
+          display: block;
+          margin-top: 20px;
+        }
+      
+        nav .navbar .links li .arrow {
+          line-height: 40px;
+        }
+      
+        nav .navbar .links li {
+          display: block;
+        }
+      
+        nav .navbar .links li .sub-menu {
+          position: relative;
+          top: 0;
+          box-shadow: none;
+          display: none;
+        }
+      
+        nav .navbar .links li .sub-menu li {
+          border-bottom: none;
+      
+        }
+      
+        .navbar .links li .sub-menu .more-sub-menu {
+          display: none;
+          position: relative;
+          left: 0;
+        }
+      
+        .navbar .links li .sub-menu .more-sub-menu li {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+      
+        .links li:hover .htmlcss-arrow,
+        .links li:hover .js-arrow {
+          transform: rotate(0deg);
+        }
+      
+        .navbar .links li .sub-menu .more-sub-menu {
+          display: none;
+        }
+      
+        .navbar .links li .sub-menu .more span {
+          /* background: red; */
+          display: flex;
+          align-items: center;
+          /* justify-content: space-between; */
+        }
+      
+        .links li .sub-menu .more:hover .more-sub-menu {
+          display: none;
+        }
+      
+        nav .navbar .links li:hover .htmlCss-sub-menu,
+        nav .navbar .links li:hover .js-sub-menu {
+          display: none;
+        }
+      
+        .navbar .nav-links.show1 .links .htmlCss-sub-menu,
+        .navbar .nav-links.show3 .links .js-sub-menu,
+        .navbar .nav-links.show2 .links .more .more-sub-menu {
+          display: block;
+        }
+      
+        .navbar .nav-links.show1 .links .htmlcss-arrow,
+        .navbar .nav-links.show3 .links .js-arrow {
+          transform: rotate(180deg);
+        }
+      
+        .navbar .nav-links.show2 .links .more-arrow {
+          transform: rotate(90deg);
+        }
+      }
+      
+      @media (max-width:370px) {
+        nav .navbar .nav-links {
+          max-width: 100%;
+        }
+      }
+      
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: Arial, sans-serif;
+      }
+      
+      
+      /* Section styling */
+      .section {
+        position: relative;
+        overflow: hidden;
+      }
+      
+      
+      nav .logo {
+        display: grid;
+        grid-template-columns: auto auto;
+        align-items: center;
+        padding: 0 100px 0 20px;
+      }
+      
+      .logo img {
+        height: 50px;
+        margin-right: 10px;
+      }
+      
+      .logo h2 {
+        position: absolute;
+        display: inline;
+        margin-top: -22px;
+        font-size: 1.5em;
+        color: #0C0E10;
+      }
+      
+      .logo h5 {
+        display: inline;
+        position: absolute;
+        margin-top: 5px;
+        color: red;
+        font-style: italic;
+        font-size: 0.9em;
+      }
+      
+      /* Optional: Smooth scrolling */
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      </style>
+      <style>
+        .background h1 {
+        position: absolute;
+        font-size: calc(7vw + 1px);
+        margin-top:  calc(42vh + 1px);
+        margin-left: 5vw;
+        font-family: 'Inter', sans-serif;
+        font-weight: 500;
+        background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, #23468A 80%);
+        -webkit-background-clip: text;
+        /* Ensures the gradient applies to the text */
+        background-clip: text;
+        /* For modern browsers */
+        color: transparent;
+        height: 400px;
+        line-height:  calc(6vw + 1px);
+      }
+      
+      .background p {
+        position: absolute;
+        font-size: 24px;
+        margin-top:  calc(35vh + 1px);
+        margin-left: 5vw;
+        font-family: 'Inter', sans-serif;
+        font-weight: 400;
+        background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, #23468A 140%);
+        -webkit-background-clip: text;
+        /* Ensures the gradient applies to the text */
+        background-clip: text;
+        /* For modern browsers */
+        color: transparent;
+        height: 300px;
+      }
+      .background img {
+        margin-top:  calc(22vh + 1px);
+        width:  calc(50vw + 1px);
+      }
+      
+      .hide {
+        opacity: 0;
+      }
+      
+      /* Hidden class to remove text completely */
+      .hidden {
+        display: none;
+      }
+      
+      /* Background container */
+      .background {
+        position: relative;
+        background-image: url('static/images/frontend/backgroundhome.webp');
+        background-size: cover;
+        background-position: center;
+        height: 110vh;
+        width: 100%;
+        overflow: hidden;
+      }
+      
+      #landingpage .homebutton {
+        position: absolute;
+        font-size: 24px;
+        width: 180px;
+        margin-top:  calc(55vh + 100px);
+        margin-left: 5vw;
+        padding: 15px 30px;
+        border-radius: 200px;
+        border: solid #ffffff 2px;
+        font-family: 'Inter', sans-serif;
+        background: rgb(96, 140, 159);
+        background: linear-gradient(129deg, rgba(35, 94, 136, 1) 0%, rgba(35, 94, 136, 0.75) 9%, rgba(255, 255, 255, 0) 24%, rgba(35, 94, 137, 0.5) 43%, rgba(35, 94, 137, 0.75) 50%, rgba(35, 94, 136, 0.5) 55%, rgba(255, 255, 255, 0) 80%, rgba(35, 94, 136, 0.5) 94%, rgba(35, 94, 136, 1) 100%);
+        color: white;
+      }
+      
+      .repairany {
+        display: block;
+        position: absolute;
+        margin-top: 15vh;
+        margin-left: 50vw;
+      }
+      
+      .title {
+        clip-path: polygon(7% 0%, 93% 0%, 100% 50%, 93% 100%, 7% 100%, 0% 50%);
+        background-color: white;
+        color: #23468A;
+        padding: 0.5px 25px;
+        width: 225px;
+        text-align: center;
+        margin: 5vh auto;
+      }
+      
+      .title h1 {
+        font-size: 20px;
+        font-weight: 700;
+      }
+      
+      .subtitle h2 {
+        background: linear-gradient(90deg, #23468A 0%, #000000 100%);
+        -webkit-background-clip: text;
+        /* Ensures the gradient applies to the text */
+        background-clip: text;
+        /* For modern browsers */
+        color: transparent;
+        font-size: 7.5vw;
+        font-weight: 500;
+        padding: 0.5px 25px;
+        width: 70vw;
+        height: 200px;
+        text-align: center;
+        margin: 5vh auto;
+        line-height: 80px;
+      }
+      
+      .subtitle2 h2 {
+        background: linear-gradient(90deg, #ffffff 0%, #23468A 100%);
+        -webkit-background-clip: text;
+        /* Ensures the gradient applies to the text */
+        background-clip: text;
+        /* For modern browsers */
+        color: transparent;
+        font-size: 7.5vw;
+        font-weight: 500;
+        padding: 0.5px 25px;
+        width: 70vw;
+        height: 200px;
+        text-align: center;
+        margin: 5vh auto;
+        line-height: 80px;
+      }
+      
+      .devicecardsmain {
+        display: flex;
+        flex-direction: column;
+        width: 80vw;
+        margin: auto;
+      }
+      .devicecards {
+        display: flex;
+        flex-direction: row;
+        width: 80vw;
+        margin: auto;
+      }
+      
+      .devicecard {
+        width: calc(22vw + 1px);
+        border-radius: 15px;
+        margin: 2vw;
+        background-color: #ffffff;
+        height: calc(45vh + 1px);
+      }
+      
+      .devicecard img {
+        display: flex;
+        height: 150px;
+        margin: 30px auto;
+      }
+      .cardsbutton {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+        outline: none;
+        border: 0;
+        vertical-align: middle;
+        text-decoration: none;
+        background: transparent;
+        padding: 0;
+        font-size: inherit;
+        font-family: inherit;
+      }
+      .cardsbutton.learn-more {
+        width: 12rem;
+        height: auto;
+      }
+      .cardsbutton.learn-more .circle {
+        transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+        position: relative;
+        display: block;
+        margin: 0;
+        width: 3rem;
+        height: 3rem;
+        background: #282936;
+        border-radius: 1.625rem;
+      }
+      .cardsbutton.learn-more .circle .icon {
+        transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        background: #fff;
+      }
+      .cardsbutton.learn-more .circle .icon.arrow {
+        transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+        left: 0.625rem;
+        width: 1.125rem;
+        height: 0.125rem;
+        background: none;
+      }
+      .cardsbutton.learn-more .circle .icon.arrow::before {
+        position: absolute;
+        content: '';
+        top: -0.25rem;
+        right: 0.0625rem;
+        width: 0.625rem;
+        height: 0.625rem;
+        border-top: 0.125rem solid #fff;
+        border-right: 0.125rem solid #fff;
+        transform: rotate(45deg);
+      }
+      .cardsbutton.learn-more .button-text {
+        transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 0.75rem 0;
+        font-size: 12px;
+        margin: 0.2rem 0 0 2.5rem;
+        color: #282936;
+        font-weight: 700;
+        line-height: 1.6;
+        text-align: center;
+        text-transform: uppercase;
+      }
+      .devicecard:hover .cardsbutton .circle {
+        width: 100%;
+      }
+      .devicecard:hover .cardsbutton .circle .icon.arrow {
+        background: #fff;
+        transform: translate(1rem, 0);
+      }
+      .devicecard:hover .cardsbutton .button-text {
+        color: #fff;
+      }
+      
+      @supports (display: grid) {
+       #container {
+          grid-area: main;
+          align-self: center;
+          justify-self: center;
+        }
+      }
+      @media screen and (max-width: 1100px) {
+        .devicecards {
+          width: 80vw;
+          margin: auto;
+        }
+      
+        .devicecard {
+          min-width: 22.6vw;
+          margin: 2vw;
+        height: calc(45vh + 1px);
+        }
+        .devicecard img {
+          display: flex;
+          height: 100px;
+          margin: 30px auto;
+        }
+      }
+      
+      /* Styles for tablets and mobile devices (max-width: 899px) */
+      @media screen and (max-width: 899px) {
+        .background {
+          background-image: url('static/images/frontend/backgroundhome.webp');
+          height: 100vh;
+          overflow: hidden;
+          transition: background-size 0.3s ease-in-out;
+        }
+      
+        .background h1 {
+          position: absolute;
+          font-size: 3.5rem;
+          left: 0;
+          right: 0;
+          margin-left: auto;
+          margin-right: auto;
+          text-align: center;
+          margin-top: 45vh;
+          line-height: 60px;
+          background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgb(96, 140, 159) 110%);
+          -webkit-background-clip: text;
+          /* Ensures the gradient applies to the text */
+          background-clip: text;
+          /* For modern browsers */
+          color: transparent;
+        }
+      
+        .background p {
+          position: absolute;
+          font-size: 1.2rem;
+          margin-top: 37vh;
+          left: 0;
+          right: 0;
+          margin-left: auto;
+          margin-right: auto;
+          text-align: center;
+          background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgb(96, 140, 159) 110%);
+          -webkit-background-clip: text;
+          /* Ensures the gradient applies to the text */
+          background-clip: text;
+          /* For modern browsers */
+          color: transparent;
+        }
+      
+        #landingpage .homebutton {
+          font-size: 20px;
+          margin-top: 70vh;
+          left: 0;
+          right: 0;
+          width: 150px;
+          margin-left: auto;
+          margin-right: auto;
+          padding: 12px 25px;
+        }
+      
+        nav .logo {
+          transform: scale(0.8);
+          margin-left: -5vw;
+        }
+      
+        .repairany {
+          display: none;
+        }
+      
+      
+        .title {
+          width: 150px;
+          text-align: center;
+          margin: 5vh auto;
+        }
+      
+        .title h1 {
+          font-size: 14px;
+          font-weight: 700;
+        }
+      
+        .subtitle h2 {
+          font-size: 9vw;
+          font-weight: 500;
+          width: 95vw;
+          height: 200px;
+          text-align: center;
+          margin: 5vh auto;
+          line-height: 70px;
+        }
+      
+        .devicecards {
+          display: flex;
+          flex-direction: row;
+          width: 80vw;
+          margin: auto;
+        }
+      
+        .devicecard {
+          min-width: 22.6vw;
+          margin: 2vw;
+          background-color: #ffffff;
+        height: calc(35vh + 1px);
+        }
+        .devicecard img {
+          display: flex;
+          height: 80px;
+          margin: 30px auto;
+        }
+        .cardsbutton {
+          transform: scale(0.8);
+        }
+      }
+      
+      @media screen and (max-width: 500px) {
+      
+        .subtitle h2 {
+          font-size: 9vw;
+          font-weight: 500;
+          width: 95vw;
+          height: 90px;
+          text-align: center;
+          margin: 5vh auto;
+          line-height: 40px;
+        }
+        .devicecardsmain {
+          display: block;
+        }
+        .devicecards {
+          display: block;
+          width: 275px;
+          margin: auto;
+        }
+      
+        .devicecard {
+          width: calc(65vw + 1px);
+          margin: 2vw;
+          background-color: #ffffff;
+          height:  calc(45vh + 1px);
+        }
+        .devicecard img {
+          display: flex;
+          height: 150px;
+        }
+      }
+      
+      </style>
+      <style>
+        
+.dark {
+  color: #282828;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.deck {
+  min-height: 100vh;
+  position: relative;
+}
+
+.section-transition {
+  position: relative;
+}
+
+.deck1 {
+  width: 100%;
+  min-height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  overflow: hidden;
+}
+.deck1 .bg {
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  left: 0;
+  background: linear-gradient(90deg, #23468A 0%, rgb(0, 0, 0) 80%);
+  overflow: hidden;
+}
+.deck1 .bg.top {
+  top: 0;
+}
+.deck1 .bg.bottom {
+  bottom: 0;
+}
+
+.split-text {
+  width: 13em;
+  height: 6em;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  font-size: calc(7vw + 1px);
+  text-align: center;
+  line-height: 1.3em;
+  font-weight: 400;
+  color: #fff;
+}
+.split-text span {
+  opacity: 0.5;
+}
+.bg.top .split-text {
+  height: 1.5em;
+  bottom: 0;
+  z-index: 20;
+}
+.bg.bottom .split-text {
+  padding-bottom: 0.09em;
+  top: -1.5em;
+  z-index: 10;
+  vertical-align: bottom;
+  clip: rect(1.5em auto auto auto);
+}
+
+.deck2 {
+  top: 30vh;
+}
+      </style>
+      <style>
+        /* Basic video container styling */
+       .video-container {
+        display: flex;
+       }
+
+        /* Styling the video player */
+        video {
+            width: 85vw;
+            margin: auto;
+            height: 300px;
+            display: block;
+            border-radius: 300px; /* Initially round */
+            transition: border-radius 0.3s ease-in-out;
+            object-fit: cover; /* Ensures the video covers the container */
+
+        }
+
+        /* On hover, make it rectangular with rounded corners */
+        .video-container:hover video {
+            border-radius: 20px;
+        }
+
+        /* When clicked, make the container and video square */
+        .clicked video {
+            border-radius: 0%;
+        }
+
+        /* Ensuring the video stays square on click */
+        .clicked {
+            width: 300px; /* Adjust size as needed */
+            height: 300px;
+        }
+
+    </style>
+
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.1/assets/owl.carousel.min.css'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.1/assets/owl.theme.default.css'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css'>
+    
+  <style>
+  /*** 
+  
+  ====================================================================
+      Testimonial Section
+  ====================================================================
+  
+  ***/
+  .large-container {
+    position: static;
+    max-width: 1580px;
+    padding: 0px 30px;
+    margin: 0 auto;
+  }
+  
+  .testimonial-section {
+    position: relative;
+    padding-top: 80px;
+    padding-bottom: 210px;
+    overflow: hidden;
+  }
+  .testimonial-section:before {
+    position: absolute;
+    left: -200px;
+    top: 22%;
+    background-image: url(http://t.commonsupport.com/adro/images/icons/ring-circle.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 701px;
+    height: 756px;
+    content: "";
+    -webkit-animation: fa-spin 25s infinite alternate;
+    animation: fa-spin 25s infinite alternate;
+  }
+  .testimonial-section .sec-title {
+    position: relative;
+    margin-bottom: 115px;
+  }
+  .testimonial-section .sec-title .title {
+    margin-bottom: 20px;
+  }
+  .testimonial-section .testimonial-carousel {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 -50px;
+  }
+  
+  .testimonial-block {
+    position: relative;
+    padding: 50px;
+  }
+  .testimonial-block .inner-box {
+    padding: 80px 105px;
+    background-color: #ffffff;
+    box-shadow: 0 0 50px rgba(226, 222, 232, 0.75);
+  }
+  .testimonial-block .text {
+    position: relative;
+    display: block;
+    font-size: 18px;
+    line-height: 32px;
+    color: #282331;
+    font-weight: 400;
+    margin-bottom: 50px;
+    font-family: "Muli", sans-serif;
+  }
+  .testimonial-block .info-box {
+    position: relative;
+    padding-left: 115px;
+    padding-top: 10px;
+  }
+  .testimonial-block .info-box .thumb {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 82px;
+    width: 82px;
+  }
+  .testimonial-block .info-box .thumb img {
+    border: 6px solid #e5e6fa;
+    border-radius: 50%;
+    overflow: hidden;
+    display: block;
+    width: 100%;
+    box-shadow: 0 45px 45px rgba(147, 147, 147, 0.35);
+  }
+  .testimonial-block .info-box .name {
+    position: relative;
+    display: block;
+    font-size: 21px;
+    line-height: 1.2em;
+    color: #382c4d;
+    font-weight: 700;
+    margin-bottom: 10px;
+    font-family: "Niramit", sans-serif;
+  }
+  .testimonial-block .info-box .designation {
+    position: relative;
+    display: block;
+    font-size: 16px;
+    line-height: 24px;
+    color: #8053f7;
+    font-weight: 400;
+    font-family: "Muli", sans-serif;
+  }
+  
+  .testimonial-carousel .owl-nav {
+    position: absolute;
+    right: 75px;
+    bottom: 70px;
+  }
+  .testimonial-carousel .owl-next, .testimonial-carousel .owl-prev {
+    position: relative;
+    display: inline-block;
+    height: 75px;
+    width: 75px;
+    line-height: 75px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #ffffff;
+    transition: all 300ms ease;
+  }
+  .testimonial-carousel .owl-next:hover, .testimonial-carousel .owl-prev:hover {
+    background-color: #00df97;
+    box-shadow: 0 24px 24px rgba(187, 187, 187, 0.75);
+  }
+  
+  .arrow-right, .arrow-left {
+    position: relative;
+    display: inline-block;
+    height: 9px;
+    width: 43px;
+    background-image: url(http://t.commonsupport.com/adro/images/icons/arrow-left-2.png);
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  .arrow-right {
+    background-image: url(http://t.commonsupport.com/adro/images/icons/arrow-right-2.png);
+  }
+  
+  .testimonial-section .thumb-layer {
+    position: absolute;
+    right: 30px;
+    top: 120px;
+  }
+  .testimonial-section .thumb-layer .image {
+    position: relative;
+    margin-right: 0;
+  }
+  .testimonial-section .thumb-layer .image img {
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  @media only screen and (max-width: 767px) {
+    .testimonial-section .sec-title {
+      margin-bottom: 50px;
+    }
+  
+    .testimonial-block {
+      padding: 0;
+    }
+    .testimonial-block .inner-box {
+      box-shadow: none;
+      border: 2px solid #f1f1f1;
+    }
+  
+    .testimonial-carousel .owl-nav {
+      position: relative;
+      left: 0;
+      bottom: 0;
+      margin-top: 20px;
+      text-align: center;
+    }
+    .testimonial-carousel .owl-next, .testimonial-carousel .owl-prev {
+      border: 2px solid #f1f1f1;
+    }
+  }
+  @media only screen and (max-width: 1366px) {
+    .large-container {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+  </style>
+  <style>
+    .bg-footer {
+      background: linear-gradient(90deg, #23468A 0%, rgb(0, 0, 0) 80%);
+      padding: 50px 0 30px;
+  }
+  .footer-heading {
+      letter-spacing: 2px;
+  }
+  
+  .footer-link a {
+      color: #acacac;
+      line-height: 40px;
+      font-size: 14px;
+      transition: all 0.5s;
+  }
+  
+  .footer-link a:hover {
+      color: #1bbc9b;
+  }
+  
+  .contact-info {
+      color: #acacac;
+      font-size: 14px;
+  }
+  
+  .footer-social-icon {
+      font-size: 15px;
+      height: 34px;
+      width: 34px;
+      line-height: 34px;
+      border-radius: 3px;
+      text-align: center;
+      display: inline-block;
+  }
+  
+  .facebook {
+      background-color: #4e71a8;
+      color: #ffffff;
+  }
+  
+  .twitter {
+      background-color: #55acee;
+      color: #ffffff;
+  }
+  
+  .google {
+      background-color: #d6492f;
+      color: #ffffff;
+  }
+  
+  .apple {
+      background-color: #424041;
+      color: #ffffff;
+  }
+  
+  .footer-alt {
+      color: #acacac;
+  }
+  
+  .footer-heading {
+      position: relative;
+      padding-bottom: 12px;
+  }
+  
+  .footer-heading:after {
+      content: '';
+      width: 25px;
+      border-bottom: 1px solid #FFF;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      display: block;
+      border-bottom: 1px solid #1bbc9b;
+  }
+  </style>
+   
+<style>
+  .faq-section {
+    display: flex;
+      min-height: 100vh;
+      padding: 10vh 0 0;
+  }
+  .faq-title h2 {
+    position: relative;
+    margin-bottom: 45px;
+    display: inline-block;
+    font-weight: 600;
+    line-height: 1;
+  }
+  .faq-title h2::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      width: 60px;
+      height: 2px;
+      background: #23468A;
+      bottom: -25px;
+      margin-left: -30px;
+  }
+  .faq-title p {
+    padding: 0 190px;
+    margin-bottom: 10px;
+  }
+  
+  .faq {
+    width: 50vw;
+    margin: 0 auto;
+    background: #FFFFFF;
+    box-shadow: 0 2px 48px 0 rgba(0, 0, 0, 0.06);
+    border-radius: 4px;
+  }
+  
+  .faq .card {
+    border: none;
+    background: none;
+    border-bottom: 1px dashed #CEE1F8;
+  }
+  
+  .faq .card .card-header {
+    padding: 0px;
+    border: none;
+    background: none;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+  }
+  
+  .faq .card .card-header:hover {
+      background: rgba(35, 69, 138, 0.1);
+      
+      padding-left: 10px;
+  }
+  .faq .card .card-header .faq-title {
+    width: 100%;
+    text-align: left;
+    padding: 0px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-weight: 400;
+    font-size: 15px;
+    letter-spacing: 1px;
+    color: #3B566E;
+    text-decoration: none !important;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  
+  .faq .card .card-header .faq-title .badge {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    line-height: 14px;
+    float: left;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+    text-align: center;
+    background: #23468A;
+    color: #fff;
+    font-size: 12px;
+    margin-right: 20px;
+  }
+  
+  .faq .card .card-body {
+    padding: 30px;
+    padding-left: 35px;
+    padding-bottom: 16px;
+    font-weight: 400;
+    font-size: 16px;
+    color: #6F8BA4;
+    line-height: 28px;
+    letter-spacing: 1px;
+    border-top: 1px solid #F3F8FF;
+  }
+  
+  .faq .card .card-body p {
+    margin-bottom: 14px;
+  }
+  
+  @media (max-width: 991px) {
+    .faq {
+      margin-bottom: 30px;
+    }
+    .faq .card .card-header .faq-title {
+      line-height: 26px;
+      margin-top: 10px;
+    }
+  }
+  </style>
+
+  <style>
+    .process {
+      height: 150vh;
+  background: linear-gradient(90deg, #23468A 0%, rgb(0, 0, 0) 80%);
+    }
+.cardcontainer {
+  display: flex;
+  width: 60vw;
+  margin: 0 auto;
+}
+    .processcard {
+      height: calc(10vh + 100px);
+      width: calc(20vw + 1px);
+      background: rgba( 255, 255, 255, 0.25 );
+      box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+      backdrop-filter: blur( 10px );
+      -webkit-backdrop-filter: blur( 10px );
+      -webkit-box-shadow: inset 0px 0px 32px 2px rgba(255,255,255,1);
+      -moz-box-shadow: inset 0px 0px 15px 0px rgba(255,255,255,1);
+      box-shadow: inset 0px 0px 15px 0px rgba(255,255,255,1);
+      border-radius: 10px;
+      border: 1px solid rgba( 255, 255, 255, 0.18 );
+    }
+
+    .righttilt {
+      transform: rotate(-4deg);
+    }
+
+    .lefttilt {
+      background: rgba( 255, 255, 255, 0.5 );
+      transform: rotate(4deg);
+    }
+  </style>
+  <style>
+    .brandsrepair {
+      height: 100vw;
+    }
+  </style>
+  </head>
+
+  <body translate="no">
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PB8P48SV"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+    <header>
+      <section id="landingpage" class="content">
+        <nav>
+          <div class="navbar">
+            <i class='bx bx-menu'></i>
+            <div class="logo">
+              <img src="static/images/frontend/logo.svg" alt="Logo">
+              <div><h2>Mending.in</h2>
+                <h5>We never back down</h5>
+              </div>
+            </div>
+            <div class="nav-links">
+              <div class="sidebar-logo">
+                <span class="logo-name">Logo</span>
+                <i class='bx bx-x'></i>
+              </div>
+              <ul class="links">
+                <li><a class="acolorchange" href="#">HOME</a></li>
+                <li>
+                  <a class="acolorchange" href="#">HTML & CSS</a>
+                  <i class='bx bxs-chevron-down htmlcss-arrow arrow  '></i>
+                  <ul class="htmlCss-sub-menu sub-menu">
+                    <li><a href="#">Web Design</a></li>
+                    <li><a href="#">Login Forms</a></li>
+                    <li><a href="#">Card Design</a></li>
+                    <li class="more">
+                      <span><a href="#">More</a>
+                        <i class='bx bxs-chevron-right arrow more-arrow'></i>
+                      </span>
+                      <ul class="more-sub-menu sub-menu">
+                        <li><a href="#">Neumorphism</a></li>
+                        <li><a href="#">Pre-loader</a></li>
+                        <li><a href="#">Glassmorphism</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a class="acolorchange" href="#">JAVASCRIPT</a>
+                  <i class='bx bxs-chevron-down js-arrow arrow '></i>
+                  <ul class="js-sub-menu sub-menu">
+                    <li><a href="#">Dynamic Clock</a></li>
+                    <li><a href="#">Form Validation</a></li>
+                    <li><a href="#">Card Slider</a></li>
+                    <li><a href="#">Complete Website</a></li>
+                  </ul>
+                </li>
+                <li><a class="acolorchange" href="#">ABOUT US</a></li>
+                <li><a class="acolorchange" href="#">CONTACT US</a></li>
+              </ul>
+            </div>
+            <div class="search-box">
+              <i class='bx bx-search'></i>
+              <div class="input-box">
+                <input type="text" placeholder="Search...">
+              </div>
+            </div>
+          </div>
+        </nav>
+        <div class="background">
+          <p><i class="fas fa-cog fa-fw"></i> Fix it Fast! Fix it Right!</p>
+      <h1>Repairs at<br />Doorstep</h1>
+          <img class="repairany" src="static/images/frontend/repairany.svg" alt="">
+          <a href class="homebutton" id="dynamicText">Book Now</a>
+        </div>
+      </section>
+  </header>
+      <section class="section content2">
+        <div class="title"><h1>Devices</h1></div>
+        <div class="subtitle"><h2>We Repair A Wide<br/>Range of Devices</h2></div>
+         <div class="devicecardsmain">
+          <div class="devicecards">
+          <div class="devicecard">
+            <img src="static/images/frontend/mobile.webp" alt="">
+
+            <div id="container">
+              <button class="cardsbutton learn-more">
+                <span class="circle" aria-hidden="true">
+                  <span class="icon arrow"></span>
+                </span>
+                <span class="button-text">Mobile Repair</span>
+              </button>
+            </div>
+          </div>
+          <div class="devicecard">
+            <img src="static/images/frontend/tablet.webp" alt="">
+
+            <div id="container">
+              <button class="cardsbutton learn-more">
+                <span class="circle" aria-hidden="true">
+                  <span class="icon arrow"></span>
+                </span>
+                <span class="button-text">Tablet Repair</span>
+              </button>
+            </div>
+          </div>
+          <div class="devicecard">
+            <img src="static/images/frontend/ipad.webp" alt="">
+
+            <div id="container">
+              <button class="cardsbutton learn-more">
+                <span class="circle" aria-hidden="true">
+                  <span class="icon arrow"></span>
+                </span>
+                <span class="button-text">IPad Repair</span>
+              </button>
+            </div>
+          </div>
+        </div>
+          <div class="devicecards">
+          <div class="devicecard">
+            <img src="static/images/frontend/laptop.webp" alt="">
+
+            <div id="container">
+              <button class="cardsbutton learn-more">
+                <span class="circle" aria-hidden="true">
+                  <span class="icon arrow"></span>
+                </span>
+                <span class="button-text">Laptop Repair</span>
+              </button>
+            </div>
+          </div>
+          <div class="devicecard">
+            <img src="static/images/frontend/macbook.webp" alt="">
+
+            <div id="container">
+              <button class="cardsbutton learn-more">
+                <span class="circle" aria-hidden="true">
+                  <span class="icon arrow"></span>
+                </span>
+                <span class="button-text">Macbook Repair</span>
+              </button>
+            </div>
+          </div>
+          <div class="devicecard">
+            <img src="static/images/frontend/applewatch.webp" alt="">
+            
+            <div id="container">
+              <button class="cardsbutton learn-more">
+                <span class="circle" aria-hidden="true">
+                  <span class="icon arrow"></span>
+                </span>
+                <span class="button-text">Apple Watch Repair</span>
+              </button>
+            </div>
+          </div>
+         </div>
+      </div>
+
+      </section>
+
+      <section class="process">
+        <br><br><br>
+        <div class="title"><h1>Our Process</h1></div>
+        <div class="subtitle2"><h2 style="height: 250px;">Who we are &<br/>How we work</h2></div>
+        <div class="cardcontainer">
+<div class="processcard righttilt"></div>
+<div class="processcard lefttilt"></div>
+<div class="processcard righttilt"></div>
+</div>
+    </section>
+    <section class="brandsrepair">
+        <br><br><br>
+        <div class="title"><h1>Brands</h1></div>
+      <div class="subtitle"><h2 style="height: 250px;">Brands we repair<br/>at your doorstep</h2></div>
+
+        
+    </section>
+    <section>
+      <div class="section-transition">
+        <div class="deck deck1 js-split">
+          <div class="bg top">
+            <h1 class="split-text"><span>Bringing Your</span> <br/>
+              Phone Back to Life, <br/>
+              <span>Right at Your</span> Doorstep!<br/>
+            <span>with</span> Mending.in</h1>
+          </div>
+          <div class="bg bottom">
+            <h1 class="split-text"><span>Bringing Your</span> <br/>
+              Phone Back to Life, <br/>
+              <span>Right at Your</span> Doorstep!<br/>
+              <span>with</span> Mending.in</h1>
+          </div>
+        </div>
+        <div class="deck deck2">
+        <br><br><br>
+        <br><br><br>
+        <br><br><br>
+        <br><br><br>
+        <br><br><br>
+        <br><br><br>
+          <div class="title"><h1>About us</h1></div>
+          <div class="subtitle"><h2>Why Choose Mending.in ?</h2></div>
+          <div class="video-container">
+            <!-- Video with controls -->
+            <video controls>
+                <source src="static/images/frontend/video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        </div>
+      </div>
+ <br/>  <br/>  <br/>  <br/>  <br/>  <br/>  <br/>  <br/>  <br/>  <br/>  <br/>  <br/>
+    </section>
+    <div class="title"><h1>Reviews</h1></div>
+    <div class="subtitle"><h2 style="height: 250px;">Customer Experiences <br/>You can Trust</h2></div>
+      <section style="transform: scale(0.8);" class="testimonial-section">
+        <div class="large-container">
+          <div class="testimonial-carousel owl-carousel owl-theme">
+            <!-- Testimonial Block -->
+            <div class="testimonial-block">
+              <div class="inner-box">
+                <div class="text">Why is this important? Because clients want to know the businesses they depend on for advice, are well managed in their own right.  Not only that but this event gives you the chance to give your back-office team</div>
+                <div class="info-box">
+                  <div class="thumb"><img src="http://t.commonsupport.com/adro/images/resource/thumb-1.jpg" alt=""></div>
+                  <h4 class="name">Mahfuz Riad</h4>
+                  <span class="designation">Ui Designer & CEO</span>
+                </div>
+              </div>
+            </div>
+    
+            <!-- Testimonial Block -->
+            <div class="testimonial-block">
+              <div class="inner-box">
+                <div class="text">Why is this important? Because clients want to know the businesses they depend on for advice, are well managed in their own right.  Not only that but this event gives you the chance to give your back-office team</div>
+                <div class="info-box">
+                  <div class="thumb"><img src="http://t.commonsupport.com/adro/images/resource/thumb-1.jpg" alt=""></div>
+                  <h4 class="name">Mahfuz Riad</h4>
+                  <span class="designation">Ui Designer & CEO</span>
+                </div>
+              </div>
+            </div>
+    
+            <!-- Testimonial Block -->
+            <div class="testimonial-block">
+              <div class="inner-box">
+                <div class="text">Why is this important? Because clients want to know the businesses they depend on for advice, are well managed in their own right.  Not only that but this event gives you the chance to give your back-office team</div>
+                <div class="info-box">
+                  <div class="thumb"><img src="http://t.commonsupport.com/adro/images/resource/thumb-1.jpg" alt=""></div>
+                  <h4 class="name">Mahfuz Riad</h4>
+                  <span class="designation">Ui Designer & CEO</span>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <div class="thumb-layer paroller">
+            <figure class="image"><img src="http://t.commonsupport.com/adro/images/resource/user-thumbs.png" alt=""></figure>
+          </div>
+        </div>
+      </section>
+
+      <div class="title"><h1>FAQs</h1></div>
+      <div class="subtitle"><h2 style="height: 200px;">Got Questions? <br/>We've got Answers</h2></div>
+      <section class="faq-section">
+        <div class="container">
+          <div class="row">
+                                <div class="faq" id="accordion">
+                                    <div class="card">
+                                        <div class="card-header" id="faqHeading-1">
+                                            <div class="mb-0">
+                                                <h5 class="faq-title" data-toggle="collapse" data-target="#faqCollapse-1" data-aria-expanded="true" data-aria-controls="faqCollapse-1">
+                                                    <span class="badge">1</span>What is Lorem Ipsum?
+                                                </h5>
+                                            </div>
+                                        </div>
+                                        <div id="faqCollapse-1" class="collapse" aria-labelledby="faqHeading-1" data-parent="#accordion">
+                                            <div class="card-body">
+                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header" id="faqHeading-2">
+                                            <div class="mb-0">
+                                                <h5 class="faq-title" data-toggle="collapse" data-target="#faqCollapse-2" data-aria-expanded="false" data-aria-controls="faqCollapse-2">
+                                                    <span class="badge">2</span> Where does it come from?
+                                                </h5>
+                                            </div>
+                                        </div>
+                                        <div id="faqCollapse-2" class="collapse" aria-labelledby="faqHeading-2" data-parent="#accordion">
+                                            <div class="card-body">
+                                                <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header" id="faqHeading-3">
+                                            <div class="mb-0">
+                                                <h5 class="faq-title" data-toggle="collapse" data-target="#faqCollapse-3" data-aria-expanded="false" data-aria-controls="faqCollapse-3">
+                                                    <span class="badge">3</span>Why do we use it?
+                                                </h5>
+                                            </div>
+                                        </div>
+                                        <div id="faqCollapse-3" class="collapse" aria-labelledby="faqHeading-3" data-parent="#accordion">
+                                            <div class="card-body">
+                                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header" id="faqHeading-4">
+                                            <div class="mb-0">
+                                                <h5 class="faq-title" data-toggle="collapse" data-target="#faqCollapse-4" data-aria-expanded="false" data-aria-controls="faqCollapse-4">
+                                                    <span class="badge">4</span> Where can I get some?
+                                                </h5>
+                                            </div>
+                                        </div>
+                                        <div id="faqCollapse-4" class="collapse" aria-labelledby="faqHeading-4" data-parent="#accordion">
+                                            <div class="card-body">
+                                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header" id="faqHeading-5">
+                                            <div class="mb-0">
+                                                <h5 class="faq-title" data-toggle="collapse" data-target="#faqCollapse-5" data-aria-expanded="false" data-aria-controls="faqCollapse-5">
+                                                    <span class="badge">5</span> What is Lorem Ipsum?
+                                                </h5>
+                                            </div>
+                                        </div>
+                                        <div id="faqCollapse-5" class="collapse" aria-labelledby="faqHeading-5" data-parent="#accordion">
+                                            <div class="card-body">
+                                                <p> It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header" id="faqHeading-6">
+                                            <div class="mb-0">
+                                                <h5 class="faq-title" data-toggle="collapse" data-target="#faqCollapse-6" data-aria-expanded="false" data-aria-controls="faqCollapse-6">
+                                                    <span class="badge">6</span> Where does it come from?
+                                                </h5>
+                                            </div>
+                                        </div>
+                                        <div id="faqCollapse-6" class="collapse" aria-labelledby="faqHeading-6" data-parent="#accordion">
+                                            <div class="card-body">
+                                                <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header" id="faqHeading-7">
+                                            <div class="mb-0">
+                                                <h5 class="faq-title" data-toggle="collapse" data-target="#faqCollapse-7" data-aria-expanded="false" data-aria-controls="faqCollapse-7">
+                                                    <span class="badge">7</span> Why do we use it?
+                                                </h5>
+                                            </div>
+                                        </div>
+                                        <div id="faqCollapse-7" class="collapse" aria-labelledby="faqHeading-7" data-parent="#accordion">
+                                            <div class="card-body">
+                                                <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                          </div>
+                        </div>
+                        </section>
+
+
+                        <br/>  <br/>  <br/>  <br/>
+
+          <script src='https://code.jquery.com/jquery-2.1.0.js'></script>
+        <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script>
+      <footer class="section bg-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="">
+                        <h6 class="footer-heading text-uppercase text-white">Information</h6>
+                        <ul class="list-unstyled footer-link mt-4">
+                            <li><a href="">Pages</a></li>
+                            <li><a href="">Our Team</a></li>
+                            <li><a href="">Feuchers</a></li>
+                            <li><a href="">Pricing</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <div class="">
+                        <h6 class="footer-heading text-uppercase text-white">Ressources</h6>
+                        <ul class="list-unstyled footer-link mt-4">
+                            <li><a href="">Monitoring Grader </a></li>
+                            <li><a href="">Video Tutorial</a></li>
+                            <li><a href="">Term &amp; Service</a></li>
+                            <li><a href="">Zeeko API</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-2">
+                    <div class="">
+                        <h6 class="footer-heading text-uppercase text-white">Help</h6>
+                        <ul class="list-unstyled footer-link mt-4">
+                            <li><a href="">Sign Up </a></li>
+                            <li><a href="">Login</a></li>
+                            <li><a href="">Terms of Services</a></li>
+                            <li><a href="">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="">
+                        <h6 class="footer-heading text-uppercase text-white">Contact Us</h6>
+                        <p class="contact-info mt-4">Contact us if need help withanything</p>
+                        <p class="contact-info">+01 123-456-7890</p>
+                        <div class="mt-5">
+                            <ul class="list-inline">
+                                <li class="list-inline-item"><a href="#"><i class="fab facebook footer-social-icon fa-facebook-f"></i></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="fab twitter footer-social-icon fa-twitter"></i></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="fab google footer-social-icon fa-google"></i></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="fab apple footer-social-icon fa-apple"></i></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="text-center mt-5">
+            <p class="footer-alt mb-0 f-14">2025 © Mending.in, All Rights Reserved</p>
+        </div>
+    </footer>
+
+      <!--End Testimonial Section -->
+      <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.1/owl.carousel.min.js'></script>
+          <script id="rendered-js" >
+    (function ($) {
+    
+      "use strict";
+    
+      // Testimonial Carousel
+      if ($('.testimonial-carousel').length) {
+        $('.testimonial-carousel').owlCarousel({
+          animateOut: 'slideOutDown',
+          animateIn: 'zoomIn',
+          loop: true,
+          margin: 0,
+          nav: true,
+          smartSpeed: 300,
+          autoplay: 7000,
+          navText: ['<span class="arrow-left"></span>', '<span class="arrow-right"></span>'],
+          responsive: {
+            0: {
+              items: 1 },
+    
+            600: {
+              items: 1 },
+    
+            800: {
+              items: 1 },
+    
+            1024: {
+              items: 1 } } });
+    
+    
+    
+      }
+    
+    })(window.jQuery);
+        </script>
+    <script>
+      function toggleSquare(container) {
+          container.classList.toggle('clicked');
+      }
+  </script>
+
+    <script
+      src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRefreshCSS-44fe83e49b63affec96918c9af88c0d80b209a862cf87ac46bc933074b8c557d.js"></script>
+
+    <script id="rendered-js">
+// search-box open close js code
+let navbar = document.querySelector(".navbar");
+let searchBox = document.querySelector(".search-box .bx-search");
+// let searchBoxCancel = document.querySelector(".search-box .bx-x");
+
+searchBox.addEventListener("click", () => {
+  navbar.classList.toggle("showInput");
+  if (navbar.classList.contains("showInput")) {
+    searchBox.classList.replace("bx-search", "bx-x");
+  } else {
+    searchBox.classList.replace("bx-x", "bx-search");
+  }
+});
+
+// sidebar open close js code
+let navLinks = document.querySelector(".nav-links");
+let menuOpenBtn = document.querySelector(".navbar .bx-menu");
+let menuCloseBtn = document.querySelector(".nav-links .bx-x");
+menuOpenBtn.onclick = function () {
+  navLinks.style.left = "0";
+};
+menuCloseBtn.onclick = function () {
+  navLinks.style.left = "-100%";
+};
+// sidebar submenu open close js code
+let htmlcssArrow = document.querySelector(".htmlcss-arrow");
+htmlcssArrow.onclick = function () {
+  navLinks.classList.toggle("show1");
+};
+let moreArrow = document.querySelector(".more-arrow");
+moreArrow.onclick = function () {
+  navLinks.classList.toggle("show2");
+};
+let jsArrow = document.querySelector(".js-arrow");
+jsArrow.onclick = function () {
+  navLinks.classList.toggle("show3");
+};
+    </script>
+
+    <script>
+      const text = document.getElementById('dynamicText');
+      const nav = document.querySelector('nav');
+      const colorc = document.getElementsByClassName('acolorchange');
+      window.addEventListener('scroll', function () {
+          const scrollAmount = window.scrollY;
+          const viewportHeight = window.innerHeight;
+          if (scrollAmount > viewportHeight / 2) {
+              text.classList.add('hidden'); // Add the 'hidden' class to remove the text
+              nav.style.background = 'rgba(221, 221, 221, 1)';
+              
+              // Loop through all elements with the class 'acolorchange' and change their color
+              Array.from(colorc).forEach(element => {
+                  element.style.color = 'rgba(0, 0, 0, 1)';
+              });
+          } else {
+              text.classList.remove('hidden'); // Ensure text reappears if scrolling back up
+              nav.style.background = 'rgba(35, 70, 138, 0)';
+    
+              // Loop through all elements with the class 'acolorchange' and reset their color
+              Array.from(colorc).forEach(element => {
+                  element.style.color = 'rgba(255, 255, 255, 1)';
+              });
+          }
+      });
+    </script>
+    
+
+    <!-- AOS  -->
+    <script src='https://unpkg.com/aos@2.3.0/dist/aos.js'></script>
+    <script id="rendered-js">
+AOS.init({
+duration: 1200 });
+</script>
+
+
+<script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.2/ScrollMagic.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.2/plugins/animation.gsap.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.2/plugins/debug.addIndicators.min.js'></script>
+      <script id="rendered-js" >
+/* FYI: External js files used too. */
+
+var winWidth;
+$(window).resize(function () {
+  winWidth = window.innerWidth;
+});
+
+// init controller
+var controller = new ScrollMagic.Controller();
+
+var ease = Power3.easeInOut;
+
+var tweenSplitSection = new TimelineMax();
+tweenSplitSection.add([
+TweenMax.fromTo(".deck1 .bg.top", 0.5,
+{
+  x: 0,
+  ease: ease },
+
+{
+  xPercent: -100,
+  ease: ease }),
+
+TweenMax.fromTo(".deck1 .bg.bottom", 0.5,
+{
+  xPercent: 0,
+  ease: ease },
+
+{
+  xPercent: 100,
+  ease: ease })]);
+// build scene
+var sceneSpiltSection = new ScrollMagic.Scene({
+  triggerElement: ".deck1",
+  triggerHook: 'onLeave',
+  duration: '80%' }).
+
+setTween(tweenSplitSection)
+//.addIndicators({ name: "Split section (duration: 500)" })
+.setPin(".deck1").
+addTo(controller);
+    </script>
+  </body>
+
+</html>
